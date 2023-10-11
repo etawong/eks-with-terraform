@@ -14,7 +14,7 @@ locals {
 
 # Role and policies for node groups
 resource "aws_iam_role" "nodes" {
-  name               = "eks-node-group-nodes"
+  name               = var.node_role_name
   assume_role_policy = data.aws_iam_policy_document.nodes.json
 }
 
@@ -26,7 +26,7 @@ resource "aws_iam_role_policy_attachment" "nodes-AmazonEKSWorkerNodePolicy" {
 
 # Role and policies for eks cluster
 resource "aws_iam_role" "demo" {
-  name               = "eks-cluster-demo"
+  name               = var.cluster_role_name
   assume_role_policy = data.aws_iam_policy_document.eks_assume_role.json
 }
 

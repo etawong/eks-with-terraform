@@ -1,3 +1,11 @@
+#Iam roles module call
+module "eks-iam-roles" {
+  source            = "../iam-module"
+  node_role_name    = "eks-node-group-nodes"
+  cluster_role_name = "eks-cluster-demo"
+}
+
+
 #0. Using external data to generate vpc time stamp
 data "external" "vpc_name" {
   program = ["python", "${path.module}/name.py"]
