@@ -2,3 +2,6 @@
 .terraform.*
 *.tfstate
 *.tfstate.*
+.access_keys
+developer1.txt
+manager.txt
