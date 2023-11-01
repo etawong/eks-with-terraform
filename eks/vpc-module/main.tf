@@ -1,6 +1,6 @@
 #Iam roles module call
 module "eks-iam-roles" {
-  source            = "../iam-module"
+  source            = "../iam-roles-module"
   node_role_name    = "eks-node-group-nodes"
   cluster_role_name = "eks-cluster-demo"
 }

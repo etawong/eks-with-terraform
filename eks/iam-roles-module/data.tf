@@ -5,7 +5,7 @@ data "aws_iam_policy_document" "nodes" {
     effect = "Allow"
     actions = [
       "sts:AssumeRole"
-    ]
+    ]kops
     principals {
       type        = "Service"
       identifiers = ["ec2.amazonaws.com"]
