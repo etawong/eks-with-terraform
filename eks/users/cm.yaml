@@ -13,6 +13,10 @@ data:
       username: manager
       groups:
       - system:masters
+    - userarn: arn:aws:iam::453062099228:user/etienne
+      username: etienne
+      groups:
+      - reader
   mapRoles: |
     - groups:
       - system:bootstrappers
