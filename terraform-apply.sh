@@ -13,22 +13,22 @@ terraform apply -auto-approve
 
 # Check if the previous command was successful.
 if [ $? -eq 0 ]; then
-    echo "Successfully applied Terraform for the root module, moving to eks-module..."
+    echo "Successfully created the eks cluster, moving to iam-roles-module..."
     sleep 3
-    cd ../eks-module/
+    cd ../iam-roles-module/
     
-    # Apply Terraform configuration for the eks-module.
+    # Apply Terraform configuration for the iam-roles-module.
     terraform apply -auto-approve
 
     # Check if the previous command was successful.
     if [ $? -eq 0 ]; then
-        echo "Successfully created the eks cluster, moving to iam-roles-module..."
+        echo "Successfully created the roles, moving to  eks-module..."
         sleep 3
-        cd ../iam-roles-module/
+        cd ../eks-module/
         
-        # Apply Terraform configuration for the iam-roles-module.
+        # Apply Terraform configuration for the eks-module.
         terraform apply -auto-approve
-        echo "Successfully applied Terraform for iam-roles-module."
+        echo "Successfully created the eks cluster."
     else
         echo "Failed to apply Terraform for eks-module."
         exit 1
