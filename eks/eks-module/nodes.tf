@@ -1,10 +1,4 @@
-
 /*
-module "eks" {
-  source = "git::https://github.com/etawong/eks-module.git"
-}
-*/
-
 # Data block to read local vpc terraform.tfstate file
 data "terraform_remote_state" "network" {
   backend = "local"
@@ -13,21 +7,13 @@ data "terraform_remote_state" "network" {
   }
 }
 
-# Data block to read the local IAM terraform.tfstate file
-data "terraform_remote_state" "iam-roles" {
-  backend = "local"
-
-  config = {
-    path = "../iam-roles-module/terraform.tfstate"
-  }
-}
 
 # Create node group in the created vpc using created node role
 resource "aws_eks_node_group" "private-nodes" {
   cluster_name    = aws_eks_cluster.demo.name
   node_group_name = "private-nodes"
-  node_role_arn   = data.terraform_remote_state.iam-roles.outputs.node_role_arn
-  
+  node_role_arn   = data.terraform_remote_state.iam-roles.outputs.demo_role
+
   subnet_ids = [
     #aws_subnet.public[0].id,aws_subnet.public[1].id,
     data.terraform_remote_state.network.outputs.private[0], data.terraform_remote_state.network.outputs.private[1]
@@ -55,3 +41,4 @@ resource "aws_eks_node_group" "private-nodes" {
     "k8s.io/cluster-autoscaler/enabled" = false
   }
 }
+*/

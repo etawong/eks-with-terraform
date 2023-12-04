@@ -7,12 +7,3 @@ output "public" {
 }
 
 
-output "node_role" {
-  value = module.eks-iam-roles.demo_role_arn
-}
-
-output "demo_role" {
-  value = module.eks-iam-roles.node_role_arn
-}
-
-

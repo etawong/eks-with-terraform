@@ -11,7 +11,7 @@ echo "Press enter to continue after reviewing the status."
 read
 
 # Prompt for the commit message
-echo "Please enter you commit message: "
+echo "Please enter the commit message: "
 read commit_message
 
 # Commit the changes
